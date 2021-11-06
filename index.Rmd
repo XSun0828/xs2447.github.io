@@ -1,0 +1,15 @@
+---
+title: "Interactive website"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: cosmo
+---
+
+# This is Xinran's P8105 website
+
+On this website, I will introduce myself through my resume. I will also present one of my plotly projects in P8105. My contact information is linked on the web page. You can contact me directly in any way you like by clicking the appropriate tab. If you are interested in what I have done before or what I am doing now, please feel free to contact me!
+
+
+![](https://media.giphy.com/media/13D4wgYXxPPyWQ/giphy.gif)

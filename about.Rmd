@@ -1,0 +1,39 @@
+---
+title: "Xinran Sun's Resume"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+
+## EDUCATION
+Columbia University, Mailman School of Public Health                  [Sept. 2021 – May 2023]
+
+•Master of Science, Biostatistics                                                         
+
+•Relevant Coursework: Biostatistics, Probability, and Epidemiology
+
+
+University of California, San Diego                                 [Sept. 2017 – June 2021]
+
+•Bachelor of Science, Bioengineering (Biotechnology)      	      		   	   
+
+•Relevant Coursework: Bioengineering, Chemistry, Biochemistry, and Computer Science
+
+## PROJECT
+Senior Design Project: Molecular Detection                            [July 2020 – June 2021]
+
+•	Designed pathogen detection equipment using melting curve analysis (heat-based analysis of DNA samples) to analyze DNA, reducing costs and creating portable design 
+
+•	Cooperated with teammates to conduct wet-lab testing, ensuring accuracy and compliance with research protocols
+
+•	Wrote a script in Python and MATLAB to analyze the electrical signal and filter noise
+
+## SKILLS
+•	IT Skills: Microsoft Office, Python, R, Java, Arduino
+
+•	Wet Lab skills: Cell culture, transformation, transfection, and transduction, gene targeting and editing, organic compound purification
+
+•	Languages: Mandarin Chinese (native), English (fluent), Korean (intermediate)
+

@@ -1,0 +1,69 @@
+---
+title: "Dashboard"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+    source_code: embed
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(tidyverse)
+library(p8105.datasets)
+
+library(plotly)
+```
+
+Lets' look at the NYC restaurant inspection data
+
+```{r}
+data("rest_inspec")
+
+rest_inspec_2017m = 
+  rest_inspec %>% 
+  filter(boro == "MANHATTAN",
+         str_detect(inspection_date, "2017")) %>% 
+  drop_na()
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r}
+rest_inspec_2017m %>% 
+  mutate(
+    violation_code = fct_reorder(violation_code, score)
+  ) %>% 
+  plot_ly(y = ~ score, color = ~ violation_code, type = "box", colors = "viridis")
+
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r}
+rest_inspec_2017m %>% 
+  count(violation_code) %>% 
+  mutate(
+    violation_code = fct_reorder(violation_code, n)
+    ) %>% 
+  plot_ly(x = ~violation_code, y = ~n, color = ~violation_code, type = "bar", colors = "viridis")
+```
+
+### Chart C
+
+```{r}
+rest_inspec %>% 
+  filter(violation_code == "10F") %>% 
+  mutate(inspection_year = substr(inspection_date, 1,4)) %>% 
+  group_by(inspection_year) %>% 
+  mutate(n = n()) %>% 
+  plot_ly(x = ~inspection_year, y = ~n, color = ~inspection_year, 
+          type = "scatter", mode = "markers")
+```
+

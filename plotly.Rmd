@@ -1,0 +1,64 @@
+---
+title: "Plotly"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+This website is about making a plotly project.
+
+```{r}
+library(tidyverse)
+library(p8105.datasets)
+
+library(plotly)
+```
+
+Lets' look at the NYC Restaurant Inspections data
+
+```{r}
+data("rest_inspec")
+
+rest_inspec_2017m = 
+  rest_inspec %>% 
+  filter(boro == "MANHATTAN",
+         str_detect(inspection_date, "2017")) %>% 
+  drop_na()
+```
+
+## Plotly boxplot
+
+```{r}
+rest_inspec_2017m %>% 
+  mutate(
+    violation_code = fct_reorder(violation_code, score)
+  ) %>% 
+  plot_ly(y = ~ score, color = ~ violation_code, type = "box", colors = "viridis")
+
+```
+
+## Plotly barplot
+
+```{r}
+rest_inspec_2017m %>% 
+  count(violation_code) %>% 
+  mutate(
+    violation_code = fct_reorder(violation_code, n)
+    ) %>% 
+  plot_ly(x = ~violation_code, y = ~n, color = ~violation_code, type = "bar", colors = "viridis")
+```
+
+
+## Plotly scatterplot
+
+```{r}
+rest_inspec %>% 
+  filter(violation_code == "10F") %>% 
+  mutate(inspection_year = substr(inspection_date, 1,4)) %>% 
+  group_by(inspection_year) %>% 
+  mutate(n = n()) %>% 
+  plot_ly(x = ~inspection_year, y = ~n, color = ~inspection_year, 
+          type = "scatter", mode = "markers")
+```
+
