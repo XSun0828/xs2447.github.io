@@ -32,6 +32,8 @@ Column {data-width=650}
 
 ### Chart A
 
+Boxplot of scores with different violation types in 2017 Manhanttan
+
 ```{r}
 rest_inspec_2017m %>% 
   mutate(
@@ -46,6 +48,8 @@ Column {data-width=350}
 
 ### Chart B
 
+Barplot of numbers of each type of violations in 2017 Manhattan
+
 ```{r}
 rest_inspec_2017m %>% 
   count(violation_code) %>% 
@@ -56,6 +60,8 @@ rest_inspec_2017m %>%
 ```
 
 ### Chart C
+
+Scatterplot of numbers of 10F violation through year 2012 to year 2017
 
 ```{r}
 rest_inspec %>% 
